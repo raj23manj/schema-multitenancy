@@ -1,16 +1,15 @@
 package com.schema.multinenancy.configuration.spring.multitenancy;
 
-import java.util.Optional;
-
-
+import com.schema.multinenancy.configuration.multitenancy.context.TenantContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import com.schema.multinenancy.configuration.multitenancy.context.TenantContext;
 
+import java.util.Optional;
 
+@Component
 public class TenantRequestInterceptor implements AsyncHandlerInterceptor{
 
 
@@ -20,7 +19,7 @@ public class TenantRequestInterceptor implements AsyncHandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         return Optional.ofNullable(request)
-                .map(tenant -> setTenantContext("public"))
+                .map(tenant -> setTenantContext(request.getHeader("x-tenant")))
                 .orElse(false);
     }
 

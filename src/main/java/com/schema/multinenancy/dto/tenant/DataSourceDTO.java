@@ -1,4 +1,4 @@
-package com.schema.multinenancy.dto;
+package com.schema.multinenancy.dto.tenant;
 
 import lombok.Builder;
 import lombok.Data;

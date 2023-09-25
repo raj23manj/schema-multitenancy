@@ -1,17 +1,14 @@
 package com.schema.multinenancy.configuration.flyway;
 
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.sql.DataSource;
-
-import com.schema.multinenancy.dto.TenantDTO;
-import com.schema.multinenancy.dto.DataSourceDTO;
+import com.schema.multinenancy.dto.tenant.DataSourceDTO;
+import com.schema.multinenancy.dto.tenant.TenantDTO;
+import lombok.AllArgsConstructor;
 import org.flywaydb.core.Flyway;
 
-
-import lombok.AllArgsConstructor;
+import javax.sql.DataSource;
+import java.util.List;
+import java.util.Optional;
 @AllArgsConstructor
 public class FlywayBuilder {
 
